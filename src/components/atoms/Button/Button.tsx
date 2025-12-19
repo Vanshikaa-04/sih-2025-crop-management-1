@@ -34,17 +34,40 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   const computedDisabled = !!(disabled || loading);
 
-  // Build classes conservatively to match existing project conventions
-  const classes = [
-    'btn',
-    variant ? `btn-${variant}` : '',
-    size === 'lg' ? 'btn-lg' : size === 'sm' ? 'btn-sm' : '',
-    fullWidth ? 'btn-full' : '',
-    loading ? 'is-loading' : '',
-    className || '',
-  ]
-    .filter(Boolean)
-    .join(' ');
+  // Build classes, including support for responsive props
+  const classList: (string | undefined)[] = ['btn'];
+  if (variant) classList.push(`btn-${variant}`);
+
+  // Handle 'size' prop (string or responsive object)
+  if (typeof size === 'object' && size !== null) {
+    Object.entries(size).forEach(([bp, s]) => {
+      if (s) {
+        // e.g., 'btn-lg' for base, or 'btn-md-lg' for medium breakpoint
+        classList.push(bp === 'base' ? `btn-${s}` : `btn-${bp}-${s}`);
+      }
+    });
+  } else if (size) {
+    classList.push(`btn-${size}`);
+  }
+
+  // Handle 'fullWidth' prop (boolean or responsive object)
+  if (typeof fullWidth === 'object' && fullWidth !== null) {
+    Object.entries(fullWidth).forEach(([bp, fw]) => {
+      if (fw) {
+        // e.g., 'btn-full' for base, or 'btn-md-full' for medium breakpoint
+        classList.push(bp === 'base' ? 'btn-full' : `btn-${bp}-full`);
+      }
+      // Note: Handling `false` to override a wider breakpoint is more complex
+      // and often requires separate 'not-full' classes.
+    });
+  } else if (fullWidth) {
+    classList.push('btn-full');
+  }
+
+  if (loading) classList.push('is-loading');
+  if (className) classList.push(className);
+
+  const classes = classList.filter(Boolean).join(' ');
 
   return (
     <button
