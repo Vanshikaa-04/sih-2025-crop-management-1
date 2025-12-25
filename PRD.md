@@ -819,11 +819,11 @@ src/
 | Component | Combines | Purpose | Key Props | Accessibility |
 |-----------|----------|---------|-----------|---------------|
 | **WeatherCard** | Icon + Text + Badge | Display weather info | temp, condition, humidity, icon | Semantic structure, live region updates |
-| **CropCard** | Image + Title + Button | Crop selection | name, image, season, onClick | Focus management, alt text required |
-| **PriceCard** | Text + Trend Icon + Chart | Market price display | crop, price, trend, change, history | Color + icon + text redundancy, ARIA labels |
-| **DiseaseCard** | Image + Title + Confidence + Badge | Disease detection result | diseaseName, confidence, severity, image | Status role, confidence as percentage |
+| **CropCard** | Image + Title + Button | Crop selection | title, imageUrl, description, status, onAction | Focus management, alt text required |
+| **PriceCard** | Text + Trend Icon + Chart | Market price display | title, price, period, description, features, onButtonClick | Color + icon + text redundancy, ARIA labels |
+| **DiseaseCard** | Image + Title + Confidence + Badge | Disease detection result | diseaseName, confidence, severity, imageUrl, symptoms | Status role, confidence as percentage |
 | **AdvisorySection** | Icon + Heading + Content + Expand | Collapsible advisory info | title, content, icon, defaultExpanded | Button role, ARIA expanded state |
-| **LocationSelector** | Icon + Text + Dropdown | Location selection | currentLocation, onChange, options | Combobox pattern, keyboard searchable |
+| **LocationSelector** | Icon + Text + Dropdown | Location selection | currentLocation, onLocationChange, options | Combobox pattern, keyboard searchable |
 | **NotificationCard** | Icon + Message + Action + Close | Alert/notification | type, message, action, onDismiss | Alert role, focus management |
 | **StatCard** | Icon + Number + Label + Trend | Display metrics | value, label, trend, icon, unit | Semantic structure, live region |
 | **FormField** | Label + Input + Helper + Error | Form input with validation | label, name, value, error, helperText | Label association, error ID linkage |
@@ -4736,30 +4736,6 @@ This PRD provides a comprehensive blueprint for building **FarmMitra**, a farmer
 - [ ] Pitch presentation ready
 - [ ] Code commented and clean
 - [ ] Deployed and accessible online
-
----
-
-## Document Information
-
-**Document Version:** 1.0  
-**Last Updated:** December 25, 2025  
-**Prepared For:** Smart India Hackathon 2025  
-**Problem Statement ID:** 25010  
-**Problem Statement:** Smart Crop Advisory System for Small and Marginal Farmers  
-**Organization:** Government of Punjab, Department of Higher Education  
-**Theme:** Agriculture, FoodTech & Rural Development
-
-**Prepared By:** AI Assistant (Claude)  
-**Target Audience:** Student Developers, Hackathon Participants  
-**Project Duration:** 2 Weeks  
-**Project Type:** Hackathon/MVP
-
----
-
-**Contact & Support:**
-- For questions about this PRD: Refer to your mentor/team lead
-- For technical issues during development: Refer to documentation links
-- For hackathon-specific queries: Contact SIH organizers
 
 ---
 
