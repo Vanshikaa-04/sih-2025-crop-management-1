@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Card } from '../../atoms/Card/Card';
 import Badge from '../../atoms/Badge/Badge';
-import Button from '../../atoms/Button/Button';
+import {Button} from '../../atoms/Button/Button';
 import type { CropCardProps } from './CropCardProps';
 
 export const CropCard: FC<CropCardProps> = ({

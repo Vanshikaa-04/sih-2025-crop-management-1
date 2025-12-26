@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { AdvisorySectionProps } from './AdvisorySectionProps';
 import { Icon } from '../../atoms/Icon/Icon';
-import Button from '../../atoms/Button/Button';
+import {Button} from '../../atoms/Button/Button';
 
 export const AdvisorySection: React.FC<AdvisorySectionProps> = ({
   title,
